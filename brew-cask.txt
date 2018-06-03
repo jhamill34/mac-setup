@@ -1,9 +1,13 @@
 atom
+docker
 google-backup-and-sync
 iterm2
+flux
 java
 mactex
 mendeley
 sketch
 slack
 spotify
+vagrant
+virtualbox

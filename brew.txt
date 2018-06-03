@@ -1,3 +1,5 @@
+ack
+fzf
 gdbm
 gettext
 ghostscript
@@ -15,6 +17,7 @@ python@2
 readline
 sqlite
 tmux
+tree
 wget
 xz
 zsh
