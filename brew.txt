@@ -15,6 +15,7 @@ openssl
 python
 python@2
 readline
+shpotify
 sqlite
 tmux
 tree
