@@ -1,5 +1,6 @@
 atom
 google-backup-and-sync
+iterm2
 java
 mactex
 mendeley
