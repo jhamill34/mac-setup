@@ -11,11 +11,13 @@ libtiff
 libunistring
 little-cms2
 nvm
+openssh
 openssl
 python
 python@2
 readline
 shpotify
+ssh-copy-id
 sqlite
 tmux
 tree
