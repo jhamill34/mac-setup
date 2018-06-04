@@ -1,4 +1,5 @@
 atom
+dashlane
 docker
 google-backup-and-sync
 iterm2
