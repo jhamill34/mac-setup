@@ -7,6 +7,7 @@ flux
 java
 mactex
 mendeley
+pulse-sms
 sketch
 slack
 spotify
