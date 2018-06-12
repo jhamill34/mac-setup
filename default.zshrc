@@ -27,6 +27,7 @@ plugins=(
   git-extras
   colored-man
   colorize
+  pass
   pip
   python
   node
@@ -54,4 +55,3 @@ source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
-
