@@ -1,3 +1,4 @@
+android-file-transfer
 atom
 dashlane
 docker
