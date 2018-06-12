@@ -1,6 +1,5 @@
 android-file-transfer
 atom
-dashlane
 docker
 google-backup-and-sync
 iterm2
