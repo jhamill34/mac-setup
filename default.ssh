@@ -1,0 +1,32 @@
+# Connection settings for 
+# Digital ocean droplet
+Host droplet
+  Port 22
+  HostName 178.128.184.2
+  User jlrasmu8
+
+# Connectoion to Raspberry Pi 
+# Desk Cluster
+Host pi_top 
+  HostName raspberrypi01.local
+
+Host pi_middle
+  HostName raspberrypi02.local
+
+Host pi_bottom
+  HostName raspberrypi03.local
+
+# Connection to Raspberry Pi Bookshelf
+Host pi_bookshelf
+  HostName raspberrypiz01.local
+
+# Common Connection Settings
+Host pi_*
+  Port 22
+  User pi
+
+
+
+
+
+
