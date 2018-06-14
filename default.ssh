@@ -2,7 +2,8 @@
 # Digital ocean droplet
 Host droplet
   Port 22
-  HostName 178.128.184.2
+  # HostName 178.128.184.2
+  HostName joshrasmussen.com
   User jlrasmu8
 
 # Connectoion to Raspberry Pi 
