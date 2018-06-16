@@ -1,6 +1,7 @@
 android-file-transfer
 atom
 docker
+eclipse-ide
 google-backup-and-sync
 iterm2
 flux
