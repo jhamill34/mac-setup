@@ -5,6 +5,7 @@ eclipse-ide
 google-backup-and-sync
 iterm2
 flux
+intellij-idea-ce
 java
 mactex
 mendeley
