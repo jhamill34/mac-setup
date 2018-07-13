@@ -1,3 +1,4 @@
+arduino
 android-file-transfer
 atom
 docker
