@@ -4,6 +4,7 @@ atom
 docker
 eclipse-ide
 google-backup-and-sync
+google-chrome
 iterm2
 flux
 intellij-idea-ce
