@@ -25,9 +25,3 @@ Host pi_bookshelf
 Host pi_*
   Port 22
   User pi
-
-
-
-
-
-

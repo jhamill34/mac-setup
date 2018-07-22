@@ -11,12 +11,19 @@ function r() { grep "$1" ${@:2} -R . }
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/joshuarasmussen/.oh-my-zsh
+export ZSH=/Users/joshrasmussen/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="daveverwer"
+# ZSH_THEME="daveverwer"
+# POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_MODE='nerdfont-complete'
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# zsh tmux settings 
+ZSH_TMUX_AUTOSTART='true'
+
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -34,6 +41,9 @@ plugins=(
   npm
   brew
   osx 
+  tmux
+  tmuxinator
+  taskwarrior 
   zsh-syntax-highlighting
 )
 

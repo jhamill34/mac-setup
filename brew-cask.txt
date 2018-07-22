@@ -6,6 +6,7 @@ eclipse-ide
 google-backup-and-sync
 google-chrome
 iterm2
+font-hack-nerd-font
 flux
 intellij-idea-ce
 java

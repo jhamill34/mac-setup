@@ -1,5 +1,8 @@
-# How to get Homebrew #
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-
-# Install Oh-My-Zsh #
-`sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+# Checklist #
+[ ] Run the scripts listed in the install directory
+[ ] Copy the `default.*` files need to get copied to your `$HOME` directory. 
+[ ] Copy the `bin` directory to the `$HOME` directory.
+[ ] Run `xargs brew tap < taps.txt`
+[ ] Run `xargs brew cask install < brew-cask.txt`
+[ ] Run `xargs brew install < brew.txt`
+[ ] Run `xargs apm install < package-list.txt`
