@@ -15,6 +15,7 @@ python@2
 shpotify
 ssh-copy-id
 sqlite
+task
 tmux
 tree
 wget
