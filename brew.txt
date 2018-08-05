@@ -6,6 +6,8 @@ fzf
 gdbm
 gradle
 jpeg
+khal
+mutt
 nvm
 openssh
 openssl
@@ -20,3 +22,8 @@ tmux
 tree
 wget
 zsh
+detox
+rmlint
+pandoc
+jq
+q
