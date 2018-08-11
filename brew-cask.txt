@@ -3,7 +3,6 @@ android-file-transfer
 atom
 docker
 eclipse-ide
-google-backup-and-sync
 iterm2
 firefox
 font-hack-nerd-font
@@ -15,5 +14,6 @@ mendeley
 processing
 sketch
 spotify
+thunderbird
 vagrant
 virtualbox
