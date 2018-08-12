@@ -12,7 +12,6 @@ mutt
 nvm
 openssh
 openssl
-pass
 python
 python@2
 shpotify

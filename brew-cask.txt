@@ -1,12 +1,14 @@
 arduino
 android-file-transfer
 atom
+dashlane
 docker
 eclipse-ide
 iterm2
-firefox
 font-hack-nerd-font
 flux
+google-backup-and-sync
+google-chrome
 intellij-idea-ce
 java
 mactex
