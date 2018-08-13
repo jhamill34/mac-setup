@@ -2,6 +2,7 @@ ack
 airport
 arduino-mk
 ctags
+cmake
 fzf
 gdbm
 gradle
