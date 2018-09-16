@@ -7,11 +7,11 @@ export EDITOR=vim
 function f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
 
-# Make a directory and change into it 
+# Make a directory and change into it
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/joshrasmussen/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -21,8 +21,12 @@ export ZSH=$HOME/.oh-my-zsh
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-# zsh tmux settings 
+# zsh tmux settings
 ZSH_TMUX_AUTOSTART='true'
+
+# POWERLEVEL 9K CONFIG
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_STRATEGY="trunkate_left"
 
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -40,11 +44,12 @@ plugins=(
   node
   npm
   brew
-  osx 
+  osx
   tmux
   tmuxinator
-  taskwarrior 
+  taskwarrior
   zsh-syntax-highlighting
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
