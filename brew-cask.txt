@@ -14,8 +14,6 @@ java
 mactex
 mendeley
 processing
-sketch
 spotify
-thunderbird
 vagrant
 virtualbox
