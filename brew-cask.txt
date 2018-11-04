@@ -15,5 +15,6 @@ mactex
 mendeley
 processing
 spotify
+synergy
 vagrant
 virtualbox
