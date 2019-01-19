@@ -1,4 +1,0 @@
-caskroom/fonts
-alphabetum/taps
-xlr8runner/homebrew-tools
-sudar/arduino-mk

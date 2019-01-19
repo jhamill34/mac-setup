@@ -1,7 +1,0 @@
-atom-wrap-in-tag@0.6.0
-language-groovy@0.7.0
-language-latex@1.1.1
-language-javascript-jsx
-latex-autocomplete@1.1.1
-vim-mode-plus@1.32.0
-
