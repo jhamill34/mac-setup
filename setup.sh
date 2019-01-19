@@ -29,6 +29,8 @@ cp zshrc $HOME/.zshrc
 cp gitignore $HOME/.gitignore_global 
 cp tmux.conf $HOME/.tmux.conf 
 
+ssh-keygen -t rsa
+
 # Install yeoman and tsserver for generators and ts completer
 npm install -g yo
 npm install -g tsserver
