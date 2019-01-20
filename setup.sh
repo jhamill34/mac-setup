@@ -1,15 +1,4 @@
-#!/bin/bash 
-
-xcode-select --install
-
-#Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Setup being able to use a Brewfile
-brew tap Homebrew/bundle
-
-# Install all of the things
-brew bundle
+#!/bin/zsh
 
 # Install Plug (VIM)
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -31,13 +20,14 @@ cp tmux.conf $HOME/.tmux.conf
 
 ssh-keygen -t rsa
 
-# Install yeoman and tsserver for generators and ts completer
-npm install -g yo
-npm install -g tsserver
-
 # Scripts used in the tmux config file
-mkdir $HOME/.bin
-cp bin/* $HOME/bin
+mkdir -p $HOME/.bin
+cp bin/* $HOME/.bin
+
+source $HOME/.zshrc
+
+# Install a stable version of node
+nvm install stable
 
 # Install Vim Plugins
 vim +'PlugInstall --sync' +qa
@@ -47,4 +37,5 @@ cd $HOME/.vim/plugged/YouCompleteMe
 rm -rf $HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/third_party/tern_runtime/node_modules
 ./install.py --java-completer --clang-completer --js-completer
 
-
+# Install yeoman 
+npm install -g yo

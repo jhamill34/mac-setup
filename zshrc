@@ -47,4 +47,3 @@ alias sqlite="sqlite3"
 
 export NVM_DIR="$HOME/.nvm"
 source $(brew --prefix nvm)/nvm.sh
-
