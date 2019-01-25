@@ -31,6 +31,7 @@ cask "virtualbox"
 # Binary
 brew "airport"
 brew "ansible"
+brew "ant"
 brew "arduino-mk"
 brew "cmake"
 brew "ctags"
