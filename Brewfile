@@ -2,6 +2,7 @@
 tap "caskroom/fonts"
 tap "alphabetum/taps"
 tap "sudar/arduino-mk"
+tap "homebrew/cask-drivers"
 
 # Apps
 cask "android-file-transfer"
@@ -22,6 +23,7 @@ cask "licecap"
 cask "mendeley"
 cask "minikube"
 cask "openemu"
+cask "philips-hue-sync"
 cask "processing"
 cask "slack"
 cask "spotify"
