@@ -7,17 +7,32 @@
 ;;;
 
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/")
-	     t)
 
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/")
-	     t)
+	     '("melpa" . "http://melpa.org/packages/"))
 
+(add-to-list 'package-archives 
+       '("melpa-stable" . "http://stable.melpa.org/packages/"))
+
+(add-to-list 'package-archives
+       '("org" . "http://orgmode.org/elpa/"))
+
+(setq package-enable-at-startup nil)
 (package-initialize)
 
-(load-theme 'monokai t)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
+(use-package 
+  monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai t))
+
 (set-face-attribute 'default nil :height 150)
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
@@ -40,38 +55,121 @@
 (global-hl-line-mode)
 (windmove-default-keybindings)
 
-(exec-path-from-shell-initialize)
+(use-package 
+  exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
 
-(ac-config-default)
+(use-package 
+  auto-complete
+  :ensure t
+  :config
+  (ac-config-default))
 
-(require 'nlinum)
-(nlinum-mode)
+(use-package
+  magit
+  :ensure t)
 
-(require 'rainbow-mode)
+(use-package 
+  nlinum
+  :ensure t
+  :config 
+  (nlinum-mode))
 
-(require 'alpha)
-(global-set-key (kbd "C-M-)") 'transparency-increase)
-(global-set-key (kbd "C-M-(") 'transparency-decrease)
+(use-package
+  rainbow-mode
+  :ensure t
+  :commands rainbow-mode)
 
-(global-set-key (kbd "C-M-v") 'switch-window)
+(use-package 
+  switch-window
+  :ensure t
+  :config
+  (global-set-key (kbd "C-M-v") 'switch-window))
 
-(require 'all-the-icons)
-(powerline-center-theme)
-(setq powerline-default-separator 'wave)
+(use-package 
+  all-the-icons
+  :ensure t)
 
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(use-package
+  powerline
+  :ensure t
+  :config
+  (powerline-center-theme)
+  (setq powerline-default-separator 'wave))
+
+(use-package 
+  neotree
+  :ensure t
+  :config 
+  (global-set-key [f8] 'neotree-toggle)
+  (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
+(use-package 
+  helm
+  :ensure
+  :diminish helm-mode
+  :commands helm-mode
+  :config
+  (helm-mode 1)
+  (setq helm-buffers-fuzzy-matching t)
+  (setq helm-autoresize-mode t)
+  (setq helm-buffer-max-length 40)
+  (define-key helm-map (kbd "S-SPC") 'helm-toggle-visible-mark)
+  (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level)
+  (define-key helm-read-files-map (kbd "C-k") 'helm-find-files-up-one-level))
+
+(use-package
+  helm-projectile
+  :commands (helm-projectile helm-projectile-switch-project)
+  :ensure t)
+
+(use-package
+  projectile
+  :ensure t
+  :defer 1
+  :config
+  (projectile-mode)
+  (setq projectile-enable-caching t)
+  (setq projectile-mode-line
+        '(:eval (format " Proj[%s]" (projectile-project-name)))))
+
+(use-package dictionary :ensure t)
+
+(use-package 
+  flycheck
+  :ensure t
+  :commands flycheck-mode)
 
 ;;; Web development work flow
 
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (emmet-mode)))
+(use-package
+  emmet-mode
+  :ensure t
+  :commands emmet-mode)
 
-;;; Jekyll work flow
-;;; < For now just use term-mode and jekyll serve >
+(use-package 
+  css-mode
+  :ensure t
+  :config
+  (add-hook 'css-mode-hook (lambda () (rainbow-mode))))
+
+(use-package 
+  web-mode
+  :ensure t
+  :defer t 
+  :config 
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-indent-style 2)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-sql-indent-offset 2))
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;;; TODO: Markdown mode shortcuts????
 
 ;;; Quick java work flow
 ;;; This is for when we want to work on a quick L33TCode exercise
@@ -98,11 +196,36 @@
             (global-set-key (kbd "C-c m") 'java-compile)
             (global-set-key (kbd "C-c r") 'java-run)))
 
+(use-package
+  tex-mode 
+  :ensure auctex)
 
 ;;; LaTeX work flow
-(auctex-latexmk-setup) 
-(setq auctex-latexmk-inherit-TeX-PDF-mode t)
-(setq preview-gs-command "/usr/local/bin/gs")
+(use-package 
+  auctex-latexmk
+  :ensure t
+  :config
+  (auctex-latexmk-setup)
+  (setq auctex-latexmk-inherit-TeX-PDF-mode t)
+  (setq preview-gs-command "/usr/local/bin/gs"))
+
+(use-package 
+  yasnippet
+  :ensure t
+  :defer t
+  :config 
+  (yas-reload-all)
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"
+                           "~/.emacs.d/remote-snippets"))
+  (setq tab-always-indent 'complete)
+  (setq yas-prompt-functions '(yas-completing-prompt
+                               yas-ido-prompt
+                               yas-dropdown-prompt))
+  (define-key yas-minor-mode-map (kbd "<escape>") 'yas-exit-snippet))
+
+(use-package 
+  yasnippet-snippets
+  :ensure t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
