@@ -1,4 +1,4 @@
-;;; -*- mode: Emacs-Listp -*-
+;;; -*- mode: Emacs-Lisp -*-
 ;;; @author Joshua Rasmussen
 ;;;
 
@@ -71,6 +71,10 @@
   :config 
   (nlinum-mode))
 
+(use-package dired :ensure nil)
+(add-hook 'dired-mode-hook (lambda ()
+                            (all-the-icons-dired-mode t)))
+
 (use-package
   rainbow-mode
   :ensure t
@@ -84,6 +88,10 @@
 
 (use-package 
   all-the-icons
+  :ensure t)
+
+(use-package
+  all-the-icons-dired
   :ensure t)
 
 (use-package
