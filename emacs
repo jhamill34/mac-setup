@@ -42,7 +42,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-
+(display-time-mode 1)
 (set-default 'cursor-type 'box)
 
 (ido-mode)
@@ -227,6 +227,12 @@
   yasnippet-snippets
   :ensure t)
 
+(use-package
+  eimp
+  :ensure t
+  :config
+  (add-hook 'image-mode-hook 'eimp-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -234,7 +240,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
+    (eimp flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
