@@ -1,3 +1,5 @@
+# -*- mode: ruby -*-
+
 # Taps
 tap "alphabetum/taps"
 tap "sudar/arduino-mk"

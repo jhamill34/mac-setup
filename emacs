@@ -1,9 +1,5 @@
-;;;
+;;; -*- mode: Emacs-Listp -*-
 ;;; @author Joshua Rasmussen
-;;; - flycheck // syntax checker
-;;; - better auto-complete / snippets
-;;; - helm configuration
-;;; - language style config
 ;;;
 
 (require 'package)
@@ -44,8 +40,6 @@
 (scroll-bar-mode -1)
 (display-time-mode 1)
 (set-default 'cursor-type 'box)
-
-(ido-mode)
 
 (column-number-mode)
 
@@ -117,8 +111,9 @@
   (setq helm-autoresize-mode t)
   (setq helm-buffer-max-length 40)
   (define-key helm-map (kbd "S-SPC") 'helm-toggle-visible-mark)
-  (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level)
-  (define-key helm-read-files-map (kbd "C-k") 'helm-find-files-up-one-level))
+  (define-key helm-find-files-map (kbd "C-k") 'helm-find-files-up-one-level))
+
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 (use-package
   helm-projectile
@@ -155,6 +150,21 @@
   :config
   (add-hook 'css-mode-hook (lambda () (rainbow-mode))))
 
+(use-package
+  yaml-mode
+  :ensure t
+  :commands yaml-mode)
+
+(use-package
+  rjsx-mode
+  :ensure t
+  :mode "\\.js\\'"
+  :config
+  (defun rjsx-mode-config()
+    "Configure RJSX mode"
+    (define-key rjsx-mode-map (kbd "C-j") 'rjsx-delete-creates-full-tag))
+  (add-hook 'rjsx-mode-hook 'rjsx-mode-config))
+
 (use-package 
   web-mode
   :ensure t
@@ -169,7 +179,33 @@
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-;;; TODO: Markdown mode shortcuts????
+(add-hook 'web-mode-hook
+          (lambda ()
+            (setq web-mode-style-padding 2)
+            (yas-minor-mode t)
+            (emmet-mode)))
+
+(use-package
+  markdown-mode
+  :ensure t
+  :mode "\\.md\\'"
+  :config
+  (define-key markdown-mode-map (kbd "<C-return>") 'markdown-insert-list-item)
+  (define-key markdown-mode-map (kbd "C-c '")      'fence-edit-code-at-point)
+  (define-key markdown-mode-map (kbd "C-c 1")      'markdown-insert-header-atx-1)
+  (define-key markdown-mode-map (kbd "C-c 2")      'markdown-insert-header-atx-2)
+  (define-key markdown-mode-map (kbd "C-c 3")      'markdown-insert-header-atx-3)
+  (define-key markdown-mode-map (kbd "C-c 4")      'markdown-insert-header-atx-4)
+  (define-key markdown-mode-map (kbd "C-c 5")      'markdown-insert-header-atx-5)
+  (define-key markdown-mode-map (kbd "C-c 6")      'markdown-insert-header-atx-6)
+
+  (add-hook 'markdown-mode-hook (lambda ()
+                                  (visual-line-mode t)
+                                  (set-fill-column 80)
+                                  (turn-on-auto-fill)
+                                  ;; Don't wrap Liquid tags
+                                  (setq-local auto-fill-inhibit-regexp "{% [a-zA-Z]+")
+                                  (flyspell-mode))))
 
 ;;; Quick java work flow
 ;;; This is for when we want to work on a quick L33TCode exercise
@@ -240,7 +276,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (eimp flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
+    (rjsx-mode yaml-mode eimp flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
