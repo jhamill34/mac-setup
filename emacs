@@ -277,6 +277,22 @@
   :config
   (add-hook 'image-mode-hook 'eimp-mode))
 
+(setq org-log-done 'time)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-agenda-files
+      (list
+       "~/OneDrive - Bellevue School District/org-docs/agenda.org"
+       "~/Google Drive/Personal/agenda.org"))
+
+(use-package
+  org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (org-bullets-mode t))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -284,7 +300,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (rjsx-mode yaml-mode eimp flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
+    (org-bullets rjsx-mode yaml-mode eimp flycheck helm markdown-mode rainbow-mode auctex-latexmk exec-path-from-shell auctex gradle-mode emmet-mode magit yasnippet switch-window evil-visual-mark-mode web-mode all-the-icons neotree dirtree powerline alpha monokai-theme nlinum auto-complete))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
