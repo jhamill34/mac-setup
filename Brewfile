@@ -4,6 +4,7 @@
 tap "alphabetum/taps"
 tap "sudar/arduino-mk"
 tap "homebrew/cask-drivers"
+tap "caskroom/versions"
 
 # Apps
 cask "android-file-transfer"
@@ -18,7 +19,7 @@ cask "google-backup-and-sync"
 cask "google-chrome"
 cask "intellij-idea-ce"
 cask "iterm2"
-cask "java"
+cask "java8"
 cask "keepingyouawake"
 cask "licecap"
 cask "mactex"
@@ -32,6 +33,7 @@ cask "spotify"
 cask "synergy"
 cask "vagrant"
 cask "virtualbox"
+cask "visual-studio-cod"
 
 # Binary
 brew "airport"
